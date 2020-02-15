@@ -29,21 +29,17 @@ undum.game.slideUpSpeed = 500
 /* The situations that the game can be in. Each has a unique ID. */
 undum.game.situations = {
     start: new undum.SimpleSituation(
-        "<h1>Starting Out with Undum</h1>\
+        "<h1>Un día cualquiera en la Universidad de Jaén</h1>\
         <img src='media/games/tutorial/woodcut1.png' class='float_right'>\
-        <p>Welcome to the Undum tutorial. Undum is a tool for writing\
-        hypertext interactive fiction. It has some unique features\
-        and a visual design that encourages narrative games.</p>\
+        <p>Buenos días, exitoso estudiante de ingeniería informática.</p>\
         \
-        <p>Hypertext interactive fiction is the digital equivalent of the\
-        Choose Your Own Adventure (CYOA) books that were popular in the\
-        1980s. The story is told in chunks, and you select from a range\
-        of options to move it forward. Unlike the book form, however, the\
-        digital form gives you far more flexibility to tell rich stories\
-        and introduce more interesting game elements.</p>\
+        <p> Esperamos que estés preparado para un largo y rutinario (o no) día en la universidad de jaén</p>\
         \
-        <p class='transient'>Click <a href='hub'>this link to\
-        continue...</a></p>"
+		 <p> Lo primero es lo primero... sal de la cama y vístete que vamos a la aventura</p>\
+		 \
+		 <p> A continuación elige el método de transporte para ir a la universidad</p> \
+        <p class='transient'>Click <a href='hub'>aquí\
+        para continuar...</a></p>"
     ),
 
     // NB: The 'hub' situation which is the main list of topics, is
@@ -58,8 +54,8 @@ undum.game.situations = {
         enter: function(character, system, from) {
             system.write($("#s_situations").html());
         },
-        tags: ["topic"],
-        optionText: "What Undum Games are Made Of",
+        tags: ["opción"],
+        optionText: "",
         displayOrder: 1
     }),
     todo: new undum.SimpleSituation(
@@ -101,13 +97,7 @@ undum.game.situations = {
         }
     ),
     links: new undum.SimpleSituation(
-        "<p>Between each chunk of new text, Undum inserts a discreet line\
-        in the margin. This allows you to see at a glance everything that\
-        has been output as a result of your last click.\
-        It is particularly useful for small devices, or when\
-        lots of content has appeared. The window also scrolls so the start\
-        of the new content is as near to the top of the window as possible.\
-        This is also designed to help you read more naturally.</p>\
+        "<p>Al ver que son las 10.30 de la mañana y que es demasiado pronto para despertarte, quitas la alarma de tu xiaomi, te das la vuelta y te vuelves a dormir.</p>\
         \
         <p>If you've been watching carefully, you will have noticed that\
         parts of the text have been disappearing when you move between\
@@ -131,7 +121,7 @@ undum.game.situations = {
         about these links.\
         Let's return to the <a href='hub'>topic list</a>.</p>",
         {
-            heading: "Disappearing Content",
+            heading: "Pasas de todo y te quedas durmiendo",
             diplayOrder: 2,
             tags: ["topic"]
         }

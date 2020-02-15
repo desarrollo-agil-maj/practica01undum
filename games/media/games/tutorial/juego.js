@@ -99,27 +99,11 @@ undum.game.situations = {
     links: new undum.SimpleSituation(
         "<p>Al ver que son las 10.30 de la mañana y que es demasiado pronto para despertarte, quitas la alarma de tu xiaomi, te das la vuelta y te vuelves a dormir.</p>\
         \
-        <p>If you've been watching carefully, you will have noticed that\
-        parts of the text have been disappearing when you move between\
-        situations. This isn't a bug! One of the aims of Undum is to give\
-        game designers the ability to make the transcript of\
-        the game read as a coherent piece of narrative. However, you often\
-        need chunks of text that do nothing but offer the reader choices.\
-        Undum defines a special CSS class to add to your HTML for this\
-        (remember generated content is just HTML). It is <em>transient</em>,\
-        and can be applied to paragraphs, <em>div</em>s, or just\
-        <em>span</em>s<span class='transient'> (such as this one)</span>.</p>\
+        <p>Pero como eres el tío con más mala suerte del mundo, resulta que ese día en la universidad ha estado repartiendo redbulls en la puerta de la biblioteca y además Victor, el profesor de Desarroll Ágil, ha dado un aprobado general con un 9.5 a todos los que han asistido hoy a clase y los que no han ido tienen un -7 al comenzar el examen de Mayo, por lo tanto, tienes Ágil suspenso. </p>\
         \
-        <p>You may also have noticed that, when you move situations, all the\
-        links in the previous situation turn into regular text. This is to\
-        stop you backtracking and trying previous options when you've already\
-        committed to one. In other H-IF systems, this is\
-        done by completely removing the content from previous pages.\
-        That prevents you going back and reading your story, however.</p>\
+        <p>Ante semejante decepción al no recibir los redbulls (porque suspender a estas altura de la vida te da ya un poco igual) decides no seguir estudiando nunca más por lo que te metes en Magisterio</p>\
         \
-        <p class='transient'>The 'Different Kinds of Links' topic has more\
-        about these links.\
-        Let's return to the <a href='hub'>topic list</a>.</p>",
+        <p class='transient'>Aún estas a tiempo de no entrar en magisterio pincha <a href='hub'>aquí</a> y vuelve a la elección de vehículo..</p>",
         {
             heading: "Pasas de todo y te quedas durmiendo",
             diplayOrder: 2,

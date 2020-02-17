@@ -298,71 +298,54 @@ undum.game.situations = {
         },
         tags: ["topic"],
         displayOrder: 6,
-        optionText: "Saving and Loading"
+        optionText: "Coger 'prestado' el coche a tu madre"
     }),
 
-    "implicit-boost": new undum.SimpleSituation(
-        "<p>Your luck has been boosted<span class='transient'>, check the\
-        list of options to see if they have changed</span>.</p>",
+    "colacao": new undum.SimpleSituation(
+        "<p>Tu sueño ha aumentado<span class='transient'>, fíjate en\
+        la lista de opciones de tu personaje.</span>.</p>",
         {
             tags: ["example"],
             enter: function(character, system, from) {
                 system.animateQuality("luck", character.qualities.luck+1)
                 system.doLink('example-choices');
             },
-            optionText: "Boost Your Luck",
+            optionText: "Cola-Cao calentito",
             displayOrder: 1,
             canView: function(character, system, host) {
                 return character.qualities.luck < 4;
             }
         }
     ),
-    "implicit-drop": new undum.SimpleSituation(
-        "<p>Your luck has been reduced<span class='transient'>, check the\
-        list of options to see if they have changed</span>.</p>",
+    "greencola": new undum.SimpleSituation(
+        "<p>Tu sueño ha disminuido<span class='transient'>, fíjate en\
+        la lista de opciones de tu personaje</span>.</p>",
         {
             tags: ["example"],
             enter: function(character, system, from) {
                 system.animateQuality("luck", character.qualities.luck-1)
                 system.doLink('example-choices');
             },
-            optionText: "Reduce Your Luck",
+            optionText: "GreenCola fresquita",
             displayOrder: 2,
             canView: function(character, system, host) {
-                return character.qualities.luck > -4;
+                return character.qualities.luck > -2;
             }
         }
     ),
-    "high-luck-only": new undum.SimpleSituation(
-        "<p>Your luck is higher than 'fair'. The link to this \
-        situation would not\
-        have appeared if it were lower.</p>",
+	"cafe": new undum.SimpleSituation(
+        "<p>Tu sueño ha disminuido<span class='transient'>, fíjate en\
+        la lista de opciones de tu personaje</span>.</p>",
         {
             tags: ["example"],
             enter: function(character, system, from) {
+                system.animateQuality("luck", character.qualities.luck-1)
                 system.doLink('example-choices');
             },
-            optionText: "High Luck Option",
+            optionText: "Café con leche",
             displayOrder: 3,
             canView: function(character, system, host) {
-                return character.qualities.luck > 0;
-            }
-        }
-    ),
-    "low-luck-only": new undum.SimpleSituation(
-        "<p>Your luck is lower than 'fair'. The link to this situation \
-        appears whether\
-        it is low or high, but can only be chosen if it is low. It does this\
-        by defining a <em>canChoose</em> method.</p>",
-        {
-            tags: ["example"],
-            enter: function(character, system, from) {
-                system.doLink('example-choices');
-            },
-            optionText: "Low Luck Option (requires low luck to be clickable)",
-            displayOrder: 3,
-            canChoose: function(character, system, host) {
-                return character.qualities.luck < 0;
+                return character.qualities.luck > -4;
             }
         }
     ),
@@ -408,7 +391,9 @@ undum.game.qualities = {
         "Stamina", {priority:"0002", group:'stats'}
     ),
     luck: new undum.FudgeAdjectivesQuality( // Fudge as in the FUDGE RPG
+
         "<span title='Velicidad, Stamina and Luck are reverently borrowed from the Fighting Fantasy series of gamebooks. The words representing Luck are from the FUDGE RPG. This tooltip is illustrating that you can use any HTML in the label for a quality (in this case a span containing a title attribute).'>Luck</span>",
+
         {priority:"0003", group:'stats'}
     ),
 

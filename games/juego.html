@@ -67,7 +67,7 @@
         </div>
 
         <div id="character_panel" class="tools right">
-          <h1>Character</h1>
+          <h1>Tu personaje</h1>
           <div id="character">
             <div id="character_text">
               <div id="character_text_content"></div>
@@ -204,37 +204,23 @@
       </div>
 
       <div id="implicit" class="situation" data-tags="topic"
-           data-heading="Implicit Choices" data-display-order="7"
+           data-heading="Tienes hambre y quieres desayunar" data-display-order="7"
            data-choices="#example">
-        <p>When you're writing an Undum game, you often need certain
-          options to be available only when certain conditions hold. You
-          might have an option to remove a secret panel in a haunted
-          house, but that should only be visible if the character knows
-          where it is. If options are available in lots of situations, it
-          can be very difficult to keep track of what options are
-          allowed, and to produce just the right list of choices.</p>
-        <p>To help with this, Undum can generate a list of situation
-          links for you. It does this in three steps. Firstly, each
-          situation can be given one or more tags, this allows you to
-          easily ask for links to all situations with the 'in-hallway'
-          tag, for example. Secondly, situations can have
-          a <em>canView</em> method, which gets to decide whether that
-          situation should appear. That method can look at the
-          current state of the character to decide whether to appear
-          or not. Thirdly, <em>SimpleSituation</em>s have a <em>choices</em>
-          option. If it is set to one or more tags, it handles the building
-          of the choice list.</p>
-        <p>You've seen this already in the topic list. The topic list
-          is generated automatically. All of the situations in the topic
-          list are always available, however.
-          <span class="transient">So here is an example of
-          automatic options that may change:</span></p>
+        <p>Te acabas de levantar, estás hambrientro y sediento así que decides ir a la cocina
+		a por algo para desayunar. Encima del pollo te han dejado tus
+		padres un poco de café pero decides abrir la nevera para barajar otras opciones.</p>
+        <p>Hay leche para hacerte un Cola-Cao calentito, aunque al final de la misma también encuentras una 
+		GreenCola fresquita para medio despertarte.</p>
+		<p>Te vas a hacer unas tostadas para desayunar pero solo te queda Nutella así que decides hacerlas
+		de eso.</p>
+		
+        <p>En función de la bebida elegida tendrás más o menos sueño, todo depende de tu elección final.
+          <span class="transient">Elige alguna opción:</span></p>
       </div>
 
       <div id="example-choices" class="situation" data-choices="#example">
-        <p class="transient">You can return to the
-          <a href='hub'>Topic List</a> or choose another option from
-          this example:</p>
+        <p class="transient">Puedes volver al 
+          <a href='hub'>menú inicial</a> o elegir otra opción:</p>
       </div>
     </div>
 

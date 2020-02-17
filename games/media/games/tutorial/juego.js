@@ -179,7 +179,7 @@ undum.game.situations = {
     ),
     "quality-types": new undum.SimpleSituation(
         "<p>------------------------------------------------------------------ </p>\
-		<p>El redbull te no solo te ha dado alas, también te ha subido la velocidad 100 puntos!!</p>\
+		<p>El redbull no solo te ha dado alas, también te ha subido la velocidad 100 puntos!!</p>\
         \
         <p> Te sientes eufórico, ¡¡podrás llegar a tiempo a clase!!</p>\
         \
@@ -189,7 +189,7 @@ undum.game.situations = {
 		<p> De repente llaman a tu puerta y aparece Victor, el profesor de Desarrollo Ágil, pero no trae buenas noticias... Resulta que no has estado unas horas inconsciente, has estado tres meses en coma y viene a decirte que has suspendido la asignatura...</p>\
 		<p> Aún estás a tiempo de no pasar por el hospital y suspender Desarrollo Ágil, pulsa \
         <a href='hub'>aquí</a> para volver a la elección de vehículo.</p>",
-      
+		
     ),
     "character-text": new undum.SimpleSituation(
         "<h1>Character Text</h1>\

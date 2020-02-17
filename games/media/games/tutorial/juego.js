@@ -392,7 +392,7 @@ undum.game.qualities = {
     ),
     luck: new undum.FudgeAdjectivesQuality( // Fudge as in the FUDGE RPG
 
-        "<span title='Velicidad, Stamina and Luck are reverently borrowed from the Fighting Fantasy series of gamebooks. The words representing Luck are from the FUDGE RPG. This tooltip is illustrating that you can use any HTML in the label for a quality (in this case a span containing a title attribute).'>Luck</span>",
+        "<span title='Velicidad, Stamina and Luck are reverently borrowed from the Fighting Fantasy series of gamebooks. The words representing Luck are from the FUDGE RPG. This tooltip is illustrating that you can use any HTML in the label for a quality (in this case a span containing a title attribute).'>Sueño</span>",
 
         {priority:"0003", group:'stats'}
     ),

@@ -162,69 +162,34 @@ undum.game.situations = {
         }
     ),
     qualities: new undum.SimpleSituation(
-        "<p>Let's talk about the character.\
-        The character is described by a series of <em>qualities</em>. These\
-        are numeric values that can describe anything from natural abilities\
-        to how much of a resource the character controls. Qualities are\
-        shown in the box on the right of the text.</p>\
+        "<p>Te preparas para ir andando a la universidad, es aquello para lo que has entrenado tanto durante toda tu vida. Crees que lo puedes conseguir, ya has hecho fechorías peores (recuerda aquella vez que subiste desde Kharma a las 5 de la mañana un poco mareaillo)</p>\
         \
-        <p>The qualities there are those you started the game with. When you\
-        <a href='quality-types'>go to the next situation</a>, keep your\
-        eyes on the character panel. You'll notice I'll give you a boost to\
-        your stamina quality. This process is animated and highlighted to\
-        draw your attention to it. You could also get a boost of Velicidad\
-        by carrying out <a href='./Velicidad-boost'>this action</a> as many\
-        times as you like.</p>",
+		<p> Si pudiste hacerlo ese día, hoy puedes, sin embargo para no fallar en tu misión de llegar a la universidad decides <a href='quality-types'>tomarte un redbull</a>, que por todo el mundo es conocido que te da alas.</p> ",
         {
             heading: "Ir andando",
             tags: ["topic"],
             displayOrder: 4,
             actions: {
-                "Velicidad-boost": function(character, system, action) {
-                    system.setQuality("Velicidad", character.qualities.Velicidad+1);
-                }
+               
             },
             exit: function(character, system, to) {
-                system.setQuality("stamina", character.qualities.stamina+1);
+                system.setQuality("Velocidad", character.qualities.Velocidad+100);
             }
         }
     ),
     "quality-types": new undum.SimpleSituation(
-        "<p>Not all the qualities in the character panel are displayed as\
-        numeric. Internally they are all numeric, but different qualities\
-        get to choose how to display themselves. So 'Luck', for example, is\
-        displayed as words (based on the FUDGE RPG's adjective scale),\
-        and 'Novice' is using just a check-mark.</p>\
+        "<p>------------------------------------------------------------------ </p>\
+		<p>El redbull no solo te ha dado alas, también te ha subido la velocidad 100 puntos!!</p>\
         \
-        <p>To see how Luck changes, try using this\
-        <a href='./luck-boost'>luck-boosting action</a> or this\
-        <a href='./luck-reduce'>luck-reducing action</a>. Notice that\
-        luck uses a numeric bonus when it runs out of words. There are a range\
-        of different display types provided with Undum, and you can easily\
-        add your own too.</p>\
+        <p> Te sientes eufórico, ¡¡podrás llegar a tiempo a clase!!</p>\
         \
-        <p>When you <a href='character-text'>leave this situation</a>,\
-        I'll set 'Novice' to zero. Watch\
-        the character panel, and you'll see that Novice decides it doesn't\
-        need to be displayed any more and will be removed. You will also see\
-        that when the last\
-        quality in a group is removed ('Novice' is in the 'Progress' group),\
-        then the group heading is also removed. You can tell Undum what\
-        group each quality belongs to, and what order they should be listed.\
-        <p>",
-        {
-            actions: {
-                "luck-boost": function(character, system, action) {
-                    system.setQuality("luck", character.qualities.luck+1);
-                },
-                "luck-reduce": function(character, system, action) {
-                    system.setQuality("luck", character.qualities.luck-1);
-                }
-            },
-            exit: function(character, system, to) {
-                system.setQuality("novice", 0);
-            }
-        }
+        <p>Inicias tu caminata a toda velocidad, pero de pronto comienzas a sudar y a sentirte bastante mal. Notas que tu corazón va a mil por hora y te das cuenta que no fue muy buena idea tomar redbull por la mañana.\
+		<p>Empiezas a ir muy lento, ¡hasta las abuelillas te adelantan!. De un momento a otro se te nubla la vista y caes redondo al suelo</p>\
+		<p>Te despiertas en el hospital después de haber estado inconsciente durante unas horas, piensas ¡bien, ya no tendré que ir esta semana a clase!</p>\
+		<p> De repente llaman a tu puerta y aparece Victor, el profesor de Desarrollo Ágil, pero no trae buenas noticias... Resulta que no has estado unas horas inconsciente, has estado tres meses en coma y viene a decirte que has suspendido la asignatura...</p>\
+		<p> Aún estás a tiempo de no pasar por el hospital y suspender Desarrollo Ágil, pulsa \
+        <a href='hub'>aquí</a> para volver a la elección de vehículo.</p>",
+		
     ),
     "character-text": new undum.SimpleSituation(
         "<h1>Character Text</h1>\
@@ -384,15 +349,15 @@ undum.game.start = "start";
  * possess. We don't have to be exhaustive, but if we miss one out then
  * that quality will never show up in the character bar in the UI. */
 undum.game.qualities = {
-    Velicidad: new undum.IntegerQuality(
-        "Velicidad", {priority:"0001", group:'stats'}
+    Velocidad: new undum.IntegerQuality(
+        "Velocidad", {priority:"0001", group:'stats'}
     ),
     stamina: new undum.NumericQuality(
         "Stamina", {priority:"0002", group:'stats'}
     ),
     luck: new undum.FudgeAdjectivesQuality( // Fudge as in the FUDGE RPG
 
-        "<span title='Velicidad, Stamina and Luck are reverently borrowed from the Fighting Fantasy series of gamebooks. The words representing Luck are from the FUDGE RPG. This tooltip is illustrating that you can use any HTML in the label for a quality (in this case a span containing a title attribute).'>Sueño</span>",
+        "<span title='Velocidad, Stamina and Luck are reverently borrowed from the Fighting Fantasy series of gamebooks. The words representing Luck are from the FUDGE RPG. This tooltip is illustrating that you can use any HTML in the label for a quality (in this case a span containing a title attribute).'>Sueño</span>",
 
         {priority:"0003", group:'stats'}
     ),
@@ -420,7 +385,7 @@ undum.game.qualityGroups = {
 /* This function gets run before the game begins. It is normally used
  * to configure the character at the start of play. */
 undum.game.init = function(character, system) {
-    character.qualities.Velicidad = 12;
+    character.qualities.Velocidad = 12;
     character.qualities.stamina = 12;
     character.qualities.luck = 0;
     character.qualities.novice = 1;

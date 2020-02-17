@@ -351,24 +351,20 @@ undum.game.situations = {
     ),
 
     "last": new undum.SimpleSituation(
-        "<h1>Where to Go Now</h1>\
-        <p>So that's it. We've covered all of Undum. This situation is the\
-        end, because it has no further links. The 'The End' message is\
-        just in the HTML output of this situation, it isn't anything special\
-        to Undum</p>\
+        "<h1>¡Enhorabuena!</h1>\
+        <p>Has decidido bajar en tu SUPER patinete Xiaomi to tuneado, tiene leds por todas partes y es capaz de alcanzar los 80kmh; antes pillaba 120kmh pero desde que te comiste aquella traicionera farola decidiste bajarle un poco la potencia. </p>\
         \
-        <p>I've added an\
-        inspiration quality to your character list. Its time for you to\
-        crack open the game file and write your own story.</p>\
-        <h1>The End</h1>",
+		<img src='media/img/scooter.png' class='float_right'>\
+			<p>Has llegado sin problema a clase, tu profesor de Desarrollo Ágil está muy contento contigo porque has sido bastante puntual, tus otros compañeros han elegido las otras opciones así que eres el único que ha llegado vivo. Estáis Victor y tú a solas en clase, después de varios silencios incómodos se levanta, se acerca a tu mesa, te mira a los ojos y te susurra: <em>enhorabuena, tienes un 10 en la asignatura.</em></p>\
+        <h1>FINAL</h1>",
         {
             tags: ["topic"],
-            optionText: "Finish the Tutorial",
+            optionText: "Patinete Xiaomi Pro",
             displayOrder: 8,
             enter: function(character, system, from) {
-                system.setQuality("inspiration", 1);
+                system.setQuality("inspiration", 10);
                 system.setCharacterText(
-                    "<p>You feel all inspired, why not have a go?</p>"
+                    "<p>¡Bien! Serás capaz de llegar a tiempo con tu super patinete Xiaomi.</p>"
                 );
             }
         }
@@ -398,7 +394,7 @@ undum.game.qualities = {
     ),
 
     inspiration: new undum.NonZeroIntegerQuality(
-        "Inspiration", {priority:"0001", group:'progress'}
+        "Nota en Desarrollo Ágil", {priority:"0001", group:'progress'}
     ),
     novice: new undum.OnOffQuality(
         "Novice", {priority:"0002", group:'progress', onDisplay:"&#10003;"}
@@ -413,7 +409,7 @@ undum.game.qualities = {
  * non-existent group. */
 undum.game.qualityGroups = {
     stats: new undum.QualityGroup(null, {priority:"0001"}),
-    progress: new undum.QualityGroup('Progress', {priority:"0002"})
+    progress: new undum.QualityGroup('Progreso', {priority:"0002"})
 };
 
 // ---------------------------------------------------------------------------

@@ -111,72 +111,53 @@ undum.game.situations = {
         }
     ),
     sticky: new undum.SimpleSituation(
-        "<p>There are three types of link in Undum. The first two we've seen\
-        in previous topics:\
-        links to change situation and links to carry out an action. When you\
-        include a link in your output, Undum parses it and wires it up\
-        correctly. If you create a link with a HTML <em>href</em> attribute\
-        containing just a name ('ballroom', for\
-        example) this will send the character to the situation with that\
-        name. Links\
-        with two components ('ballroom/view-painting', for example) send\
-        the character to a new situation <em>and then</em> carry out the\
-        named action ('view-painting' in this case). To carry out an action\
-        in the current situation, you can replace the situation name with a\
-        dot (so it would be './view-painting'). In all cases, if the\
-        character is already in that situation, then the situation's\
-        <em>enter</em> method won't be called again.</p>\
+        "\ <img src='media/games/tutorial/woodcut2.png' class='float_left'>\
+		<p>Sales de casa decidido a coger el autobús. Llegas a la parada y esperas...</p>\
         \
-        <img src='media/games/tutorial/woodcut2.png' class='float_left'>\
-        <p>The third type of link, then, is a general hyperlink. If your\
-        link doesn't consist of a single element or pair of elements, as\
-        above, then Undum will guess that you have a normal hyperlink. As\
-        <a href='http://news.bbc.co.uk' class='sticky'>in this link</a>.\
-        If you have a link that <em>does</em> look like an Undum link, you\
-        can still force Undum not to interpret it as an action or situation\
-        move, by adding the CSS class <em>raw</em> to the HTML <em>a</em> tag.\
-        links that don't have the <em>raw</em> class, but that are considered\
-        to be non-Undum links (like the link above), will have <em>raw</em>\
-        added to them before display. This could allow you to style external\
-        links differently, as we have done here.</p>\
+       \
+        <p>5 minutos...</p>\
         \
-        <p>In the last situation I said you can prevent links from being\
-        turned into regular text when you move situations. This is done\
-        by another CSS class: <em>sticky</em>. When you\
-        <a href='oneshot'>leave this situation</a>, you'll notice the\
-        external link stays active. This can allow you to have options that\
-        stay valid throughout the narrative, for example, such as a spell to\
-        teleport home.</p>",
+		\
+        <p>Sigues esperando... 10 minutos...</p>\
+        \
+		\
+        <p>Esperas... 15 minutos...</p>\
+        \
+		\
+        <p>30 minutos...</p>\
+        \
+		\
+        <p>Cuando llevas media hora en la parada recuerdas que vives en Jaén, la ciudad sin ley, y que el sistema de autobuses no funciona lo bien que debería. Puedes tomar dos opciones:</p>\
+        \
+        <p>Al ver que el autobús no viene decides\
+        <a href='oneshot'>volverte a casa</a> ya que piensas que podrías estar echandote un Fortnite en vez de estar ahí plantado.</p>\
+		<p>Confías en tu asombrosa forma física y decides \
+        <a href='oneshot1'>ir a la universidad andando</a> porque en tus tiempos mozos ibas al colegío a patita y piensas que puedes volver a hacerlo.</p>",
         {
             tags: ["topic"],
             displayOrder: 3,
-            heading: "Different Kinds of Links"
+            heading: "Decides bajar en autobús"
         }
     ),
     oneshot: new undum.SimpleSituation(
-        "<p>There is one final option for links. If you give a link\
-        the <em>once</em> CSS class, then that link will disappear\
-        after it is clicked. This is  used (as in\
-        <a href='./one-time-action' class='once'>this link</a>) for\
-        actions that you only want to be possible once. There is no\
-        point using 'once' on situation links because they'll be turned\
-        into text as soon as you click them anyway (unless they are also\
-        <em>sticky</em>, of course).</p><p>Once links are useful\
-        for actions such as examining an object more carefully. You\
-        don't want lots of repeated descriptions, so making the link\
-        a <em>once</em> link is more user friendly.</p>\
-        <p>If you have more than one link to the same action, then all\
-        matching links will be removed, so you don't have to worry about\
-        the player having an alternative way to carry out the action.</p>\
-        <p class='transient'>After you've clicked the link, let's\
-        <a href='hub'>move on</a>.</p>",
+        "<p>Llegas a casa pensando en las partidas que te vas a echar pero al entrar a casa tienes un problema:</p>\
+        <p>Tu madre. Esa señora que no se fue de tu casa cuando le dijiste que querías vivir de forma independiente.</p>\
+		<p> Con sus habilidades de ninja te lanza la zapatilla nada m.as escuchar la puerta a la vez que te grita NIÑO QUE HACES AQUÍ YA?!?!\
+		<p> Te das cuenta de que la has cagado. Aún estás a tiempo de no recibir el zapatillazo. Pulsa \
+        <a href='hub'>aquí</a> para volver a la elección de vehículo.</p>",
         {
             actions: {
-                "one-time-action": "<p>As I said, one time actions are\
-                                   mostly used to describe something in\
-                                   more detail, where you don't want the\
-                                   same descriptive text repeated over and\
-                                   over</p>"
+                "one-time-action": "<p>	</p>"
+            }
+        }
+    ),
+	 oneshot1: new undum.SimpleSituation(
+	"<p>Pero vamos a ver, ¿tú que te creías? ¿pensabas que los chupitos de jagger del sábado no te iban a pasar factura?</p>\
+        <p>Pues ahí lo tienes, no llevas ni 2 minutos andando y te da un pinchazo en el costado que no te deja ni respirar.</p>\
+		<p>Ante semejante tesitura decides <a href='oneshot'>volverte a casa</a> ya que en el fondo sabías que nunca llegarías a tiempo. Y además tienes una partida de la play pendiente. </p>",
+		{
+            actions: {
+                "one-time-action": "<p>	</p>"
             }
         }
     ),
@@ -191,16 +172,16 @@ undum.game.situations = {
         <a href='quality-types'>go to the next situation</a>, keep your\
         eyes on the character panel. You'll notice I'll give you a boost to\
         your stamina quality. This process is animated and highlighted to\
-        draw your attention to it. You could also get a boost of skill\
-        by carrying out <a href='./skill-boost'>this action</a> as many\
+        draw your attention to it. You could also get a boost of Velicidad\
+        by carrying out <a href='./Velicidad-boost'>this action</a> as many\
         times as you like.</p>",
         {
-            heading: "Qualities and the Character",
+            heading: "Ir andando",
             tags: ["topic"],
             displayOrder: 4,
             actions: {
-                "skill-boost": function(character, system, action) {
-                    system.setQuality("skill", character.qualities.skill+1);
+                "Velicidad-boost": function(character, system, action) {
+                    system.setQuality("Velicidad", character.qualities.Velicidad+1);
                 }
             },
             exit: function(character, system, to) {
@@ -420,14 +401,14 @@ undum.game.start = "start";
  * possess. We don't have to be exhaustive, but if we miss one out then
  * that quality will never show up in the character bar in the UI. */
 undum.game.qualities = {
-    skill: new undum.IntegerQuality(
-        "Skill", {priority:"0001", group:'stats'}
+    Velicidad: new undum.IntegerQuality(
+        "Velicidad", {priority:"0001", group:'stats'}
     ),
     stamina: new undum.NumericQuality(
         "Stamina", {priority:"0002", group:'stats'}
     ),
     luck: new undum.FudgeAdjectivesQuality( // Fudge as in the FUDGE RPG
-        "<span title='Skill, Stamina and Luck are reverently borrowed from the Fighting Fantasy series of gamebooks. The words representing Luck are from the FUDGE RPG. This tooltip is illustrating that you can use any HTML in the label for a quality (in this case a span containing a title attribute).'>Luck</span>",
+        "<span title='Velicidad, Stamina and Luck are reverently borrowed from the Fighting Fantasy series of gamebooks. The words representing Luck are from the FUDGE RPG. This tooltip is illustrating that you can use any HTML in the label for a quality (in this case a span containing a title attribute).'>Luck</span>",
         {priority:"0003", group:'stats'}
     ),
 
@@ -454,7 +435,7 @@ undum.game.qualityGroups = {
 /* This function gets run before the game begins. It is normally used
  * to configure the character at the start of play. */
 undum.game.init = function(character, system) {
-    character.qualities.skill = 12;
+    character.qualities.Velicidad = 12;
     character.qualities.stamina = 12;
     character.qualities.luck = 0;
     character.qualities.novice = 1;

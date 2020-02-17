@@ -183,9 +183,6 @@ undum.game.situations = {
                 "Velicidad-boost": function(character, system, action) {
                     system.setQuality("Velicidad", character.qualities.Velicidad+1);
                 }
-            },
-            exit: function(character, system, to) {
-                system.setQuality("stamina", character.qualities.stamina+1);
             }
         }
     ),
@@ -383,9 +380,6 @@ undum.game.qualities = {
     Velicidad: new undum.IntegerQuality(
         "Velicidad", {priority:"0001", group:'stats'}
     ),
-    stamina: new undum.NumericQuality(
-        "Stamina", {priority:"0002", group:'stats'}
-    ),
     luck: new undum.FudgeAdjectivesQuality( // Fudge as in the FUDGE RPG
 
         "<span title='Velicidad, Stamina and Luck are reverently borrowed from the Fighting Fantasy series of gamebooks. The words representing Luck are from the FUDGE RPG. This tooltip is illustrating that you can use any HTML in the label for a quality (in this case a span containing a title attribute).'>Sueño</span>",
@@ -417,7 +411,6 @@ undum.game.qualityGroups = {
  * to configure the character at the start of play. */
 undum.game.init = function(character, system) {
     character.qualities.Velicidad = 12;
-    character.qualities.stamina = 12;
     character.qualities.luck = 0;
     character.qualities.novice = 1;
     character.qualities.inspiration = 0;

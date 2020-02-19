@@ -159,6 +159,7 @@ undum.game.situations = {
         enter: function(character, system, from) {
             system.write($("#s_saving").html());
         },
+		
         tags: ["topic"],
         displayOrder: 6,
         optionText: "Coger 'prestado' el coche a tu madre"

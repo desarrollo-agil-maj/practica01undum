@@ -173,7 +173,7 @@ undum.game.situations = {
                
             },
             exit: function(character, system, to) {
-                system.setQuality("Velocidad", character.qualities.Velocidad+100);
+                system.setQuality("velocidad", character.qualities.velocidad+100);
             }
         }
     ),
@@ -212,50 +212,6 @@ undum.game.situations = {
             }
         }
     ),
-    progress: new undum.SimpleSituation(
-        "<p>Sometimes you want to make the change in a quality into a more\
-        significant event. You can do this by animating the change in\
-        quality. If you <a href='./boost-stamina-action'>boost your\
-        stamina</a>, you will see the stamina change in the normal\
-        way in the character panel. But you will also see a progress\
-        bar appear and animate below.</p>",
-        {
-            tags: ["topic"],
-            heading: "Showing a Progress Bar",
-            displayOrder: 5,
-            actions: {
-                // I'm going indirect here - the link carries out an
-                // action, which then uses doLink to directly change
-                // the situation.  This isn't the recommended way (I
-                // could have just changed situation in the link), but
-                // it illustrates the use of doLink.
-                "boost-stamina-action": function(character, system, action) {
-                    system.doLink("boost-stamina");
-                }
-            },
-            exit: function(character, system, to) {
-                system.animateQuality(
-                    'stamina', character.qualities.stamina+1
-                );
-            }
-        }
-    ),
-    "boost-stamina": new undum.SimpleSituation(
-        "<p>\
-        <img src='media/games/tutorial/woodcut3.png' class='float_right'>\
-        The progress bar is also useful in situations where the\
-        character block is displaying just the whole number of a quality,\
-        whereas some action changes a fraction. If the quality is displaying\
-        the character's level, for example, you might want to show a progress\
-        bar to indicate how near the character is to levelling up.</p>\
-        \
-        <p>After a few seconds, the progress bar disappears, to keep the\
-        focus on the text. Undum isn't designed for games where a lot of\
-        statistic management is needed. If you want a change to be part\
-        of the permanent record of the game, then write it in text.</p>\
-        \
-        <p>Let's <a href='hub'>return to the topic list.</a></p>"
-        ),
     // Again, we'll retrieve the text we want from the HTML file.
     "saving": new undum.Situation({
         enter: function(character, system, from) {
@@ -272,13 +228,13 @@ undum.game.situations = {
         {
             tags: ["example"],
             enter: function(character, system, from) {
-                system.animateQuality("luck", character.qualities.luck+1)
+                system.animateQuality("sueño", character.qualities.sueño+1)
                 system.doLink('example-choices');
             },
             optionText: "Cola-Cao calentito",
             displayOrder: 1,
             canView: function(character, system, host) {
-                return character.qualities.luck < 4;
+                return character.qualities.sueño < 4;
             }
         }
     ),
@@ -288,13 +244,13 @@ undum.game.situations = {
         {
             tags: ["example"],
             enter: function(character, system, from) {
-                system.animateQuality("luck", character.qualities.luck-1)
+                system.animateQuality("sueño", character.qualities.sueño-1)
                 system.doLink('example-choices');
             },
             optionText: "GreenCola fresquita",
             displayOrder: 2,
             canView: function(character, system, host) {
-                return character.qualities.luck > -2;
+                return character.qualities.sueño > -2;
             }
         }
     ),
@@ -304,13 +260,13 @@ undum.game.situations = {
         {
             tags: ["example"],
             enter: function(character, system, from) {
-                system.animateQuality("luck", character.qualities.luck-1)
+                system.animateQuality("sueño", character.qualities.sueño-1)
                 system.doLink('example-choices');
             },
             optionText: "Café con leche",
             displayOrder: 3,
             canView: function(character, system, host) {
-                return character.qualities.luck > -4;
+                return character.qualities.sueño > -4;
             }
         }
     ),
@@ -327,7 +283,7 @@ undum.game.situations = {
             optionText: "Patinete Xiaomi Pro",
             displayOrder: 8,
             enter: function(character, system, from) {
-                system.setQuality("inspiration", 10);
+                system.setQuality("notaDesarrolloAgil", 10);
                 system.setCharacterText(
                     "<p>¡Bien! Serás capaz de llegar a tiempo con tu super patinete Xiaomi.</p>"
                 );
@@ -345,24 +301,15 @@ undum.game.start = "start";
  * possess. We don't have to be exhaustive, but if we miss one out then
  * that quality will never show up in the character bar in the UI. */
 undum.game.qualities = {
-    Velocidad: new undum.IntegerQuality(
+    velocidad: new undum.IntegerQuality(
         "Velocidad", {priority:"0001", group:'stats'}
     ),
-    stamina: new undum.NumericQuality(
-        "Stamina", {priority:"0002", group:'stats'}
-    ),
-    luck: new undum.FudgeAdjectivesQuality( // Fudge as in the FUDGE RPG
-
-        "<span title='Velocidad, Stamina and Luck are reverently borrowed from the Fighting Fantasy series of gamebooks. The words representing Luck are from the FUDGE RPG. This tooltip is illustrating that you can use any HTML in the label for a quality (in this case a span containing a title attribute).'>Sueño</span>",
-
-        {priority:"0003", group:'stats'}
+    sueño: new undum.FudgeAdjectivesQuality(
+        "Sueño", {priority:"0002", group:'stats'}
     ),
 
-    inspiration: new undum.NonZeroIntegerQuality(
+    notaDesarrolloAgil: new undum.NonZeroIntegerQuality(
         "Nota en Desarrollo Ágil", {priority:"0001", group:'progress'}
-    ),
-    novice: new undum.OnOffQuality(
-        "Novice", {priority:"0002", group:'progress', onDisplay:"&#10003;"}
     )
 };
 
@@ -381,10 +328,8 @@ undum.game.qualityGroups = {
 /* This function gets run before the game begins. It is normally used
  * to configure the character at the start of play. */
 undum.game.init = function(character, system) {
-    character.qualities.Velocidad = 12;
-    character.qualities.stamina = 12;
-    character.qualities.luck = 0;
-    character.qualities.novice = 1;
-    character.qualities.inspiration = 0;
+    character.qualities.velocidad = 5;
+    character.qualities.sueño = 0;
+    character.qualities.notaDesarrolloAgil = 0;
     system.setCharacterText("<p>¡Empieza tu increible aventura!</p>");
 };

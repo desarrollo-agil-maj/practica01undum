@@ -154,27 +154,6 @@ undum.game.situations = {
         <a href='hub'>aquí</a> para volver a la elección de vehículo.</p>",
 		
     ),
-    "character-text": new undum.SimpleSituation(
-        "<h1>Character Text</h1>\
-        <p>Above the list of qualities is a short piece of text, called\
-        the character-text. This describes the character in some way. It\
-        can be set by any action or when entering or leaving a situation.\
-        It is just regular HTML content, as for all text in Undum. It can\
-        also contain Undum links, so this is another place you can put\
-        actions that the character can carry out over a long period of time.\
-        </p>\
-        <p class='transient'>Let's go back to the\
-        <a href='hub'>topic list</a>. As you do, I'll change the\
-        character text. Notice that it is highlighted, just the same as\
-        when a quality is altered.</p>",
-        {
-            exit: function(character, system, to) {
-                system.setCharacterText(
-                    "<p>We're nearing the end of the road.</p>"
-                );
-            }
-        }
-    ),
     // Again, we'll retrieve the text we want from the HTML file.
     "saving": new undum.Situation({
         enter: function(character, system, from) {
